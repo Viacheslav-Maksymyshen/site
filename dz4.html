@@ -1,0 +1,39 @@
+	<meta charset='utf-8'>
+		<script>
+          var min=1;
+          var max=100;
+          var guessNumber=Math.floor( Math.random() * (max - min + 1)) + min;//Загадываем случайное число
+          document.write('Компьютер загадал число от "1" до "100". Угадайте его за 7 попыток<br>');
+          var tryCount1=0; //Номер попытки
+          var tryCount2=0; // Для второго игрока
+          var user1Answer;
+          var user2Answer;
+             do
+              {
+               tryCount1=tryCount1+1; //Увеличиваем количество попыток на единицу для первого игрока
+                 tryCount2=tryCount2+1; //и второго
+		            user1Answer=+prompt("Игрок 1: " + tryCount1 + " попытка. Ваш вариант:"); 
+                       document.write("Игрок 1: " + tryCount1 + ". ");
+                         if (user1Answer>guessNumber)
+                            document.write("<b>Перелет</b><br>");
+                              if (user1Answer<guessNumber)
+                                 document.write("<strong>Недолет</strong><br>");
+                                  if (user1Answer == guessNumber) //если игрок 1 угадал число, то прерываем цикл
+              break;
+               user2Answer=+prompt("Игрок 2: " + tryCount2 + " попытка. Ваш вариант:"); // очередь игрока 2
+                 document.write("Игрок 1: " + tryCount2 + ". ");
+		          if (user2Answer>guessNumber)
+                    document.write("<b>Перелет</b><br>");
+                      if (user2Answer<guessNumber)
+                        document.write("<strong>Недолет</strong><br>");
+                         if (user2Answer == guessNumber)
+                            break
+               }
+               while((user1Answer != guessNumber && tryCount1 < 7) || (user2Answer != guessNumber && tryCount2 < 7)); //расширил условие для двух игроков
+                if (user1Answer==guessNumber) document.write("Поздравляем, игрок 1! Вы угадали! <br>");
+                  else document.write("Вы проиграли, Игрок 1! Попробуйте еще раз. <br>");
+                    if (user2Answer==guessNumber) document.write("Поздравляем, Игрок 2! Вы угадали!");
+                      else document.write("Вы проиграли, игрок 2! Попробуйте еще раз.");
+        </script>
+
+	
